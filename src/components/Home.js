@@ -44,7 +44,7 @@ class Home extends Component {
   togglePlay() {
     this.setState({ playing: !this.state.playing });
   }
-  
+
 
   render() {
     var { navigate } = this.props.navigation;
@@ -59,7 +59,7 @@ class Home extends Component {
           />
           <List>
             <ListItem itemDivider>
-              <Text>A</Text>
+              <Text>Elana</Text>
             </ListItem>
             <ListItem>
               <Text>Aaron Bennet</Text>
