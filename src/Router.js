@@ -5,7 +5,6 @@ import Home from './components/Home';
 import Playing from './components/Playing';
 import Library from './components/Library';
 import Search from './components/Search';
-import {Sounds} from './assets/Sounds';
 
 const Router = StackNavigator({
     Home: {screen : Home},

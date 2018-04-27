@@ -18,9 +18,10 @@ import {
 } from "native-base";
 
 export default class Playing extends Component {
-    static navigationOptions ={
-        title: "Playing",
-      };
+  static navigationOptions = {
+    title: "Playing"
+  };
+
   render() {
     return (
       <Container>
