@@ -32,6 +32,25 @@ class Home extends Component {
     title: "Home"
   };
 
+<<<<<<< HEAD
+=======
+  constructor(props) {
+    super(props);
+    this.state = {
+      playing: false,
+      muted: false,
+      shuffle: false,
+      sliding: false,
+      currentTime: 0
+    };
+  }
+
+  togglePlay() {
+    this.setState({ playing: !this.state.playing });
+  }
+
+
+>>>>>>> ebbd44584ac8d762d45dbb0e15c713fa0880ebb4
   render() {
     var { navigate } = this.props.navigation;
     return (
@@ -47,6 +66,44 @@ class Home extends Component {
             sections={SoundSectionList}
             keyExtractor={(item, index) => item.title}
           />
+<<<<<<< HEAD
+=======
+          <List>
+            <ListItem itemDivider>
+              <Text>Elana</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Aaron Bennet</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Ali Connors</Text>
+            </ListItem>
+            <ListItem itemDivider>
+              <Text>D</Text>
+            </ListItem>
+            <ListItem>
+              <Text>{Sounds.title}</Text>
+
+              <Button transparent onPress={this.togglePlay.bind(this)}>
+                <Icon type="FontAwesome" name="play" />
+              </Button>
+
+              <Button transparent onPress={this.props.addSound(Sounds.title)}>
+                <Icon type="Ionicons" name="md-add" />
+              </Button>
+
+              <Button transparent>
+                <Icon type="Entypo" name="add-to-list" />
+              </Button>
+            </ListItem>
+            <ListItem itemDivider>
+              <Text>E</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Earon Bennet</Text>
+            </ListItem>
+          </List>
+>>>>>>> ebbd44584ac8d762d45dbb0e15c713fa0880ebb4
         </Content>
         <Footer>
           <FooterTab>
