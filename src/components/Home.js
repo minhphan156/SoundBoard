@@ -18,9 +18,14 @@ import {
 } from "native-base";
 import { Image } from "react-native";
 import Video from "react-native-video";
+
 import { Sounds } from "../assets/Sounds";
 
-export default class Home extends Component {
+import {connect} from "react-redux";
+
+import {addSound} from "../actions";
+
+class Home extends Component {
   static navigationOptions = {
     title: "Home"
   };
@@ -39,6 +44,7 @@ export default class Home extends Component {
   togglePlay() {
     this.setState({ playing: !this.state.playing });
   }
+  
 
   render() {
     var { navigate } = this.props.navigation;
@@ -71,7 +77,7 @@ export default class Home extends Component {
                 <Icon type="FontAwesome" name="play" />
               </Button>
 
-              <Button transparent>
+              <Button transparent onPress={this.props.addSound(Sounds.title)}>
                 <Icon type="Ionicons" name="md-add" />
               </Button>
 
@@ -111,3 +117,14 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = ({soundData}) => {
+  const {sound} = soundData;
+  return {sound};
+}
+
+const mapActionCreators = {
+  addSound
+}
+
+export default connect(mapStateToProps, mapActionCreators)(Home);
