@@ -2,6 +2,7 @@ import {ADD_SOUND} from './type';
 
 export const addSound = (title) => {
     console.log('------------------------------------');
+    console.log("addSound action ");
     console.log(title);
     console.log('------------------------------------');
     return {

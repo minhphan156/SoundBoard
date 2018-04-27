@@ -31,7 +31,9 @@ class Home extends Component {
   static navigationOptions = {
     title: "Home"
   };
-
+addSound(){
+  this.props.addSound();
+}
   render() {
     var { navigate } = this.props.navigation;
     return (
@@ -39,7 +41,7 @@ class Home extends Component {
         <Content>
           <SectionList
             renderItem={({ item, index, section }) => {
-              return <SectionListItem item={item} index={index} />;
+              return <SectionListItem item={item} index={index} addSound={this.props.addSound} />;
             }}
             renderSectionHeader={({ section: { header } }) => {
               return <SectionHeader header={header} />;
@@ -82,7 +84,7 @@ class SectionListItem extends Component {
           <Icon type="FontAwesome" name="play" />
         </Button>
 
-        <Button transparent>
+        <Button transparent onPress={this.props.addSound.bind(this,this.props.item.title)}>
           <Icon type="Ionicons" name="md-add" />
         </Button>
 
