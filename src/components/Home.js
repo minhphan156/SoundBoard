@@ -28,15 +28,27 @@ import { addSound } from "../actions";
 
 class Home extends Component {
   //header screen
+  constructor(props){
+    super(props);
+  }
   static navigationOptions = {
     title: "Home"
   };
+
 addSound(){
   this.props.addSound();
 }
   render() {
     var { navigate } = this.props.navigation;
+    console.log('------------------------------------');
+    console.log('------------------------------------');
+    console.log("the new state of Home");
+    console.log('------------------------------------');
+    //this is how you retrieve the new state
+    console.log(this.props.sound);
+    console.log('------------------------------------');
     return (
+      
       <Container>
         <Content>
           <SectionList
@@ -108,6 +120,7 @@ class SectionHeader extends Component {
 
 const mapStateToProps = ({ soundData }) => {
   const { sound } = soundData;
+  //const sound = soundData.sound;
   return { sound };
 };
 

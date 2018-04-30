@@ -1,7 +1,7 @@
 import {ADD_SOUND} from '../actions/type';
 
 const INITIAL_STATE  = {
-    sounds:"no"
+    sounds:"initial state"
 }
 
 export default (state = INITIAL_STATE, action) => {
