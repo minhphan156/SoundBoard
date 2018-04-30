@@ -31,10 +31,15 @@ class Home extends Component {
   static navigationOptions = {
     title: "Home"
   };
+
 addSound(){
   this.props.addSound();
 }
   render() {
+    console.log('------------------------------------');
+    console.log('re-render new state')
+    console.log(this.props.sounds);
+    console.log('------------------------------------');
     var { navigate } = this.props.navigation;
     return (
       <Container>
@@ -107,8 +112,8 @@ class SectionHeader extends Component {
 }
 
 const mapStateToProps = ({ soundData }) => {
-  const { sound } = soundData;
-  return { sound };
+  const { sounds } = soundData;
+  return { sounds };
 };
 
 const mapActionCreators = {
