@@ -27,7 +27,7 @@ import { addSound } from "../actions";
 
 
 class Home extends Component {
-  //header screen
+  //header screen 1 
   constructor(props){
     super(props);
   }
