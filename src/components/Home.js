@@ -86,16 +86,23 @@ class SectionListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      playing: false,
+      muted: false,
+      shuffle: false,
+      sliding: false,
+      currentTime: 0,
       songUrl: null
     };
   }
 
   playSound(urlPassed) {
     this.setState({
-      songUrl: urlPassed
+      songUrl: urlPassed,
+      playing: !this.state.playing 
     });
   }
-
+  
+  
   // source={SoundSectionList[1].data[0].url}
   render() {
     console.log("------------------------------------");
@@ -106,15 +113,26 @@ class SectionListItem extends Component {
     return (
       <ListItem>
         {this.state.songUrl && (
-          <Video source={this.state.songUrl} resizeMode="cover" />
+          <Video 
+          source={this.state.songUrl} 
+          paused={!this.state.playing}
+          resizeMode="cover" />
         )}
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <Button
           transparent
           onPress={this.playSound.bind(this, this.props.item.url)}
         >
+        { !this.state.playing &&
           <Icon type="FontAwesome" name="play" />
+        }
+        { this.state.playing &&
+          <Icon type="FontAwesome" name="pause" />
+        }
         </Button>
+       
+      
+       
 
         <Button
           transparent
