@@ -19,42 +19,21 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
-<<<<<<< HEAD
- import { SoundSectionList } from "../assets/SoundAssest";
-//import { SoundSectionList } from "./SoundAssest";
-
-=======
 import { SoundSectionList } from "../assets/SoundAssest";
->>>>>>> playPauseFeature
 import { connect } from "react-redux";
 import { addSound } from "../actions";
-<<<<<<< HEAD
-
-class Home extends Component {
-  //header screen 1 
-  constructor(props){
-    super(props);
-  }
-=======
 import Player from "./Player";
 import Video from "react-native-video";
 
 class Home extends Component {
->>>>>>> playPauseFeature
   static navigationOptions = {
     title: "Home"
   };
 
-<<<<<<< HEAD
-addSound(){
-  this.props.addSound();
-}
-=======
   addSound() {
     this.props.addSound();
   }
 
->>>>>>> playPauseFeature
   render() {
     var { navigate } = this.props.navigation;
     console.log('------------------------------------');
@@ -190,14 +169,8 @@ class SectionHeader extends Component {
 }
 
 const mapStateToProps = ({ soundData }) => {
-<<<<<<< HEAD
-  const { sound } = soundData;
-  //const sound = soundData.sound;
-  return { sound };
-=======
   const { sounds } = soundData;
   return { sounds };
->>>>>>> playPauseFeature
 };
 
 const mapActionCreators = {
