@@ -19,12 +19,12 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
-import { SoundSectionList } from "../assets/SoundAssest";
+ import { SoundSectionList } from "../assets/SoundAssest";
+//import { SoundSectionList } from "./SoundAssest";
 
 import { connect } from "react-redux";
 
 import { addSound } from "../actions";
-
 
 class Home extends Component {
   //header screen 1 
@@ -50,6 +50,7 @@ addSound(){
     return (
       
       <Container>
+      
         <Content>
           <SectionList
             renderItem={({ item, index, section }) => {

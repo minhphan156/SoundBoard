@@ -22,7 +22,7 @@ export const SoundSectionList = [
     data: [
       {
         title: "DEAMN",
-        url: DEAMN
+        url: require("./DEAMN.mp3")
       }
     ]
   },
