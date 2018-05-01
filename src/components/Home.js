@@ -19,34 +19,40 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
-import { SoundSectionList } from "../assets/SoundAssest";
+import { SoundSectionList} from "./SoundAssest";
 
 import { connect } from "react-redux";
 
 import { addSound } from "../actions";
 
-
+import Player from "./Player";
+import WITH from "../assets/With You.mp3";
+import Video from "react-native-video";
+import Sound from 'react-native-sound';
 class Home extends Component {
-  //header screen
   static navigationOptions = {
     title: "Home"
   };
 
-addSound(){
-  this.props.addSound();
-}
+  addSound() {
+    this.props.addSound();
+  }
+
   render() {
-    console.log('------------------------------------');
-    console.log('re-render new state')
-    console.log(this.props.sounds);
-    console.log('------------------------------------');
     var { navigate } = this.props.navigation;
     return (
       <Container>
         <Content>
           <SectionList
             renderItem={({ item, index, section }) => {
-              return <SectionListItem item={item} index={index} addSound={this.props.addSound} />;
+              return (
+                <SectionListItem
+                  section={section}
+                  item={item}
+                  index={index}
+                  addSound={this.props.addSound}
+                />
+              );
             }}
             renderSectionHeader={({ section: { header } }) => {
               return <SectionHeader header={header} />;
@@ -54,8 +60,8 @@ addSound(){
             sections={SoundSectionList}
             keyExtractor={(item, index) => item.title}
           />
-          
         </Content>
+
         <Footer>
           <FooterTab>
             <Button transparent>
@@ -79,17 +85,67 @@ addSound(){
       </Container>
     );
   }
+  
 }
 class SectionListItem extends Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      songUrl:null
+    };
+  }
+
+  playSound(urlPassed) {
+    this.setState({
+      songUrl: urlPassed
+    });
+
+    const music = new Sound(require("../assets/DEAMN.mp3"), null, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // loaded successfully, play			
+      music.play((success) => {
+        if (success) {
+          console.log('successfully finished playing');
+        } else {
+          console.log('playback failed due to audio decoding errors');
+        }
+      });
+    });
+
+  
+  }
+  
+  // <Video source={SoundSectionList[1].data[0].url} resizeMode="cover" />
+
   render() {
+    
+    let con = require("../assets/With You.mp3");
+    console.log('------------------------------------');
+    console.log("songUrl is ")
+    console.log(this.state.songUrl);
+    console.log('------------------------------------');
+    // {this.state.songUrl &&
+    //   <Video source={require("../assets/With You.mp3") } resizeMode="cover"/>
+    // }
     return (
       <ListItem>
+      <Video source={require("../assets/With You.mp3") } resizeMode="cover"/>
         <Text key={this.props.index}>{this.props.item.title}</Text>
-        <Button transparent>
+        <Button
+          transparent
+          onPress={this.playSound.bind(this, this.props.item.url)}
+        >
           <Icon type="FontAwesome" name="play" />
         </Button>
 
-        <Button transparent onPress={this.props.addSound.bind(this,this.props.item.title)}>
+        <Button
+          transparent
+          onPress={this.props.addSound.bind(this, this.props.item.title)}
+        >
           <Icon type="Ionicons" name="md-add" />
         </Button>
 
