@@ -4,11 +4,11 @@ export const SoundSectionList = [
     data: [
       {
         title: "All I Ask",
-        url: require("../assets/All I Ask.mp3")
+        url: require("./All I Ask.mp3")
       },
       {
         title: "A Whole New World",
-        url: require("../assets/A Whole New World.mp3")
+        url: require("./A Whole New World.mp3")
       }
     ]
   },
@@ -17,7 +17,7 @@ export const SoundSectionList = [
     data: [
       {
         title: "DEAMN",
-        url: require("../assets/DEAMN.mp3")
+        url: require("./DEAMN.mp3")
       }
     ]
   }

@@ -19,16 +19,12 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
-import { SoundSectionList} from "./SoundAssest";
-
+import { SoundSectionList} from "../assets/SoundAssest";
 import { connect } from "react-redux";
-
 import { addSound } from "../actions";
-
 import Player from "./Player";
-import WITH from "../assets/With You.mp3";
 import Video from "react-native-video";
-import Sound from 'react-native-sound';
+
 class Home extends Component {
   static navigationOptions = {
     title: "Home"
@@ -100,30 +96,13 @@ class SectionListItem extends Component {
     this.setState({
       songUrl: urlPassed
     });
-
-    const music = new Sound(require("../assets/DEAMN.mp3"), null, (error) => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
-      // loaded successfully, play			
-      music.play((success) => {
-        if (success) {
-          console.log('successfully finished playing');
-        } else {
-          console.log('playback failed due to audio decoding errors');
-        }
-      });
-    });
-
-  
   }
   
   // <Video source={SoundSectionList[1].data[0].url} resizeMode="cover" />
+ // source={SoundSectionList[1].data[0].url}
 
   render() {
     
-    let con = require("../assets/With You.mp3");
     console.log('------------------------------------');
     console.log("songUrl is ")
     console.log(this.state.songUrl);
@@ -133,7 +112,6 @@ class SectionListItem extends Component {
     // }
     return (
       <ListItem>
-      <Video source={require("../assets/With You.mp3") } resizeMode="cover"/>
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <Button
           transparent

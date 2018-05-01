@@ -16,24 +16,25 @@ import {
   List,
   Text
 } from "native-base";
-import Video from "react-native-video";
-import DD from "../assets/With You.mp3";
+import Video from 'react-native-video';
+import { SoundSectionList } from "../assets/SoundAssest";
 export default class Playing extends Component {
   static navigationOptions = {
     title: "Playing"
   };
-  
   render() {
   
     return (
       <Container>
         <Content>
-        <Video source={{uri: 'file:///Users/Minh/WorkSpace/ReactNative/SoundBoard/src/assets/A Whole New World.mp3'}} resizeMode="cover" />
-        
-
+        <Video
+      source={SoundSectionList[1].data[0].url}
+      resizeMode="cover"
+      />
           <Text>***** Under development *****</Text>
         </Content>
       </Container>
     );
   }
 }
+
