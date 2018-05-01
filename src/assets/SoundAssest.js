@@ -1,19 +1,14 @@
-import DEAMN from "./DEAMN.mp3";
-import AllIAsk from "./All I Ask.mp3";
-import WithYou from "./With you.mp3";
-import AWholeNewWorld from "./A Whole New World.mp3";
-
 export const SoundSectionList = [
   {
     header: "A",
     data: [
       {
-        title: "All I ask",
-        url: AllIAsk
+        title: "All I Ask",
+        url: require("./AllIAsk.mp3")
       },
       {
-        title: "A whole new world",
-        url: AWholeNewWorld
+        title: "A Whole New World",
+        url: require("./AWholeNewWorld.mp3")
       }
     ]
   },
@@ -21,7 +16,11 @@ export const SoundSectionList = [
     header: "D",
     data: [
       {
+<<<<<<< HEAD
         title: "DEAMN",
+=======
+        title: "Deamn",
+>>>>>>> playPauseFeature
         url: require("./DEAMN.mp3")
       }
     ]
@@ -31,8 +30,8 @@ export const SoundSectionList = [
     data: [
       {
         title: "With You",
-        url: WithYou
+        url: require("./WithYou.mp3")
       }
     ]
-  }
+  },
 ];

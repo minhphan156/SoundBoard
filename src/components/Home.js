@@ -19,25 +19,42 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
+<<<<<<< HEAD
  import { SoundSectionList } from "../assets/SoundAssest";
 //import { SoundSectionList } from "./SoundAssest";
 
+=======
+import { SoundSectionList } from "../assets/SoundAssest";
+>>>>>>> playPauseFeature
 import { connect } from "react-redux";
-
 import { addSound } from "../actions";
+<<<<<<< HEAD
 
 class Home extends Component {
   //header screen 1 
   constructor(props){
     super(props);
   }
+=======
+import Player from "./Player";
+import Video from "react-native-video";
+
+class Home extends Component {
+>>>>>>> playPauseFeature
   static navigationOptions = {
     title: "Home"
   };
 
+<<<<<<< HEAD
 addSound(){
   this.props.addSound();
 }
+=======
+  addSound() {
+    this.props.addSound();
+  }
+
+>>>>>>> playPauseFeature
   render() {
     var { navigate } = this.props.navigation;
     console.log('------------------------------------');
@@ -54,7 +71,14 @@ addSound(){
         <Content>
           <SectionList
             renderItem={({ item, index, section }) => {
-              return <SectionListItem item={item} index={index} addSound={this.props.addSound} />;
+              return (
+                <SectionListItem
+                  section={section}
+                  item={item}
+                  index={index}
+                  addSound={this.props.addSound}
+                />
+              );
             }}
             renderSectionHeader={({ section: { header } }) => {
               return <SectionHeader header={header} />;
@@ -62,8 +86,8 @@ addSound(){
             sections={SoundSectionList}
             keyExtractor={(item, index) => item.title}
           />
-          
         </Content>
+
         <Footer>
           <FooterTab>
             <Button transparent>
@@ -89,15 +113,61 @@ addSound(){
   }
 }
 class SectionListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playing: false,
+      muted: false,
+      shuffle: false,
+      sliding: false,
+      currentTime: 0,
+      songUrl: null
+    };
+  }
+
+  playSound(urlPassed) {
+    this.setState({
+      songUrl: urlPassed,
+      playing: !this.state.playing 
+    });
+  }
+  
+  
+  // source={SoundSectionList[1].data[0].url}
   render() {
+    console.log("------------------------------------");
+    console.log("songUrl is ");
+    console.log(this.state.songUrl);
+    console.log("------------------------------------");
+
     return (
       <ListItem>
+        {this.state.songUrl && (
+          <Video 
+          source={this.state.songUrl} 
+          paused={!this.state.playing}
+          resizeMode="cover" />
+        )}
         <Text key={this.props.index}>{this.props.item.title}</Text>
-        <Button transparent>
+        <Button
+          transparent
+          onPress={this.playSound.bind(this, this.props.item.url)}
+        >
+        { !this.state.playing &&
           <Icon type="FontAwesome" name="play" />
+        }
+        { this.state.playing &&
+          <Icon type="FontAwesome" name="pause" />
+        }
         </Button>
+       
+      
+       
 
-        <Button transparent onPress={this.props.addSound.bind(this,this.props.item.title)}>
+        <Button
+          transparent
+          onPress={this.props.addSound.bind(this, this.props.item.title)}
+        >
           <Icon type="Ionicons" name="md-add" />
         </Button>
 
@@ -120,9 +190,14 @@ class SectionHeader extends Component {
 }
 
 const mapStateToProps = ({ soundData }) => {
+<<<<<<< HEAD
   const { sound } = soundData;
   //const sound = soundData.sound;
   return { sound };
+=======
+  const { sounds } = soundData;
+  return { sounds };
+>>>>>>> playPauseFeature
 };
 
 const mapActionCreators = {
