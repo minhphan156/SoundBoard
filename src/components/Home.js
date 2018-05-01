@@ -112,6 +112,9 @@ class SectionListItem extends Component {
     // }
     return (
       <ListItem>
+       {this.state.songUrl &&
+        <Video source={this.state.songUrl} resizeMode="cover"/>
+       }
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <Button
           transparent

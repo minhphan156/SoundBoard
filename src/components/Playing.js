@@ -28,7 +28,7 @@ export default class Playing extends Component {
       <Container>
         <Content>
         <Video
-      source={SoundSectionList[1].data[0].url}
+      source={SoundSectionList[0].data[0].url}
       resizeMode="cover"
       />
           <Text>***** Under development *****</Text>
