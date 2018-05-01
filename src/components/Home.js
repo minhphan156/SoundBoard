@@ -19,7 +19,7 @@ import {
 
 import { Image, SectionList, View } from "react-native";
 
-import { SoundSectionList} from "../assets/SoundAssest";
+import { SoundSectionList } from "../assets/SoundAssest";
 import { connect } from "react-redux";
 import { addSound } from "../actions";
 import Player from "./Player";
@@ -81,14 +81,12 @@ class Home extends Component {
       </Container>
     );
   }
-  
 }
 class SectionListItem extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      songUrl:null
+    this.state = {
+      songUrl: null
     };
   }
 
@@ -97,24 +95,19 @@ class SectionListItem extends Component {
       songUrl: urlPassed
     });
   }
-  
-  // <Video source={SoundSectionList[1].data[0].url} resizeMode="cover" />
- // source={SoundSectionList[1].data[0].url}
 
+  // source={SoundSectionList[1].data[0].url}
   render() {
-    
-    console.log('------------------------------------');
-    console.log("songUrl is ")
+    console.log("------------------------------------");
+    console.log("songUrl is ");
     console.log(this.state.songUrl);
-    console.log('------------------------------------');
-    // {this.state.songUrl &&
-    //   <Video source={require("../assets/With You.mp3") } resizeMode="cover"/>
-    // }
+    console.log("------------------------------------");
+
     return (
       <ListItem>
-       {this.state.songUrl &&
-        <Video source={this.state.songUrl} resizeMode="cover"/>
-       }
+        {this.state.songUrl && (
+          <Video source={this.state.songUrl} resizeMode="cover" />
+        )}
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <Button
           transparent
