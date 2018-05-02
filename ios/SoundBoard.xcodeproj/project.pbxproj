@@ -59,10 +59,6 @@
 		A4570DCBF962421C858AC576 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B068C420EE3241B39EE360E2 /* FontAwesome.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B511374207D34BE7BE72CAF7 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46195DA4FE4440588DF32F80 /* Zocial.ttf */; };
-		BA32AC982098153000AFBEBF /* With You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32AC6D2098153000AFBEBF /* With You.mp3 */; };
-		BA32AC992098153000AFBEBF /* A Whole New World.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32AC962098153000AFBEBF /* A Whole New World.mp3 */; };
-		BA32AC9A2098153000AFBEBF /* All I Ask.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32AC972098153000AFBEBF /* All I Ask.mp3 */; };
-		BA32AD452098E26C00AFBEBF /* DEAMN.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA32AD1B2098E26C00AFBEBF /* DEAMN.mp3 */; };
 		C0158B8DD27A4807ABF6A01E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C49A505F9994A70996E7C8D /* Foundation.ttf */; };
 		DC54FCA72A374E38BE97733E /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5030EEB1B2F54CCC99B1756F /* libRNVectorIcons.a */; };
 		DDEB5F8912924D2CAC5E038F /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA70A571E8C84A86A8DB7E03 /* EvilIcons.ttf */; };
@@ -421,10 +417,6 @@
 		AA804F51F74C49E49DBBE81A /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B068C420EE3241B39EE360E2 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		BA32AC6D2098153000AFBEBF /* With You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "With You.mp3"; path = "../src/assets/With You.mp3"; sourceTree = "<group>"; };
-		BA32AC962098153000AFBEBF /* A Whole New World.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "A Whole New World.mp3"; path = "../src/assets/A Whole New World.mp3"; sourceTree = "<group>"; };
-		BA32AC972098153000AFBEBF /* All I Ask.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "All I Ask.mp3"; path = "../src/assets/All I Ask.mp3"; sourceTree = "<group>"; };
-		BA32AD1B2098E26C00AFBEBF /* DEAMN.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = DEAMN.mp3; path = ../src/assets/DEAMN.mp3; sourceTree = "<group>"; };
 		C887028A41EF4AE78FA061F7 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		C979CB5B7D564D7BB1A41499 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		D022DEE950744585B8DA3FAA /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -670,10 +662,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				BA32AD1B2098E26C00AFBEBF /* DEAMN.mp3 */,
-				BA32AC962098153000AFBEBF /* A Whole New World.mp3 */,
-				BA32AC972098153000AFBEBF /* All I Ask.mp3 */,
-				BA32AC6D2098153000AFBEBF /* With You.mp3 */,
 				13B07FAE1A68108700A75B9A /* SoundBoard */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SoundBoardTests */,
@@ -1259,20 +1247,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA32AC9A2098153000AFBEBF /* All I Ask.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				E58050D8ED9F44E38CD8258F /* Entypo.ttf in Resources */,
 				66F76C7CEE68469EB9F8507C /* EvilIcons.ttf in Resources */,
 				A4570DCBF962421C858AC576 /* FontAwesome.ttf in Resources */,
-				BA32AD452098E26C00AFBEBF /* DEAMN.mp3 in Resources */,
 				04BB3153409440029ACD03E9 /* Foundation.ttf in Resources */,
 				3CBC06E3182A4673A5B95E9B /* Ionicons.ttf in Resources */,
 				4CB2FDA9B33445B8A1D2B493 /* MaterialIcons.ttf in Resources */,
 				812E6C5D4DE74FD39D1B5246 /* Octicons.ttf in Resources */,
 				5FF09EE460DE4922A84F56F6 /* Roboto_medium.ttf in Resources */,
 				5C7120BE88554206A7BCC238 /* Roboto.ttf in Resources */,
-				BA32AC982098153000AFBEBF /* With You.mp3 in Resources */,
 				4A4957798EF745CC837565D5 /* rubicon-icon-font.ttf in Resources */,
 				6F9812662EBC4132B9E48C32 /* SimpleLineIcons.ttf in Resources */,
 				B511374207D34BE7BE72CAF7 /* Zocial.ttf in Resources */,
@@ -1284,7 +1269,6 @@
 				37BA15B1F4714282B18E5A75 /* Ionicons.ttf in Resources */,
 				9D125F28CC984651BE981C1A /* MaterialCommunityIcons.ttf in Resources */,
 				6B032D230EA14D43938913E5 /* MaterialIcons.ttf in Resources */,
-				BA32AC992098153000AFBEBF /* A Whole New World.mp3 in Resources */,
 				9A48691730F24E81AF6CC5E4 /* Octicons.ttf in Resources */,
 				15F6A84E91544F0C96DDD762 /* SimpleLineIcons.ttf in Resources */,
 				21370E9F50B341E694C2B5DD /* Zocial.ttf in Resources */,
