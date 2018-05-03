@@ -35,6 +35,12 @@ class Home extends Component {
   }
 
   render() {
+    console.log('------------------------------------');
+    console.log('------------------------------------');
+    console.log("Home");
+    console.log('------------------------------------');
+    console.log(this.props.sounds);
+    console.log('------------------------------------');
     var { navigate } = this.props.navigation;
     return (
       <Container>
@@ -57,7 +63,7 @@ class Home extends Component {
             keyExtractor={(item, index) => item.title}
           />
         </Content>
-
+        
         <Footer>
           <FooterTab>
             <Button transparent>
@@ -98,45 +104,32 @@ class SectionListItem extends Component {
   playSound(urlPassed) {
     this.setState({
       songUrl: urlPassed,
-      playing: !this.state.playing 
+      playing: !this.state.playing
     });
   }
-  
-  
-  // source={SoundSectionList[1].data[0].url}
-  render() {
-    console.log("------------------------------------");
-    console.log("songUrl is ");
-    console.log(this.state.songUrl);
-    console.log("------------------------------------");
 
+  render() {
     return (
       <ListItem>
         {this.state.songUrl && (
-          <Video 
-          source={this.state.songUrl} 
-          paused={!this.state.playing}
-          resizeMode="cover" />
+          <Video
+            source={this.state.songUrl}
+            paused={!this.state.playing}
+            resizeMode="cover"
+          />
         )}
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <Button
           transparent
           onPress={this.playSound.bind(this, this.props.item.url)}
         >
-        { !this.state.playing &&
-          <Icon type="FontAwesome" name="play" />
-        }
-        { this.state.playing &&
-          <Icon type="FontAwesome" name="pause" />
-        }
+          {!this.state.playing && <Icon type="FontAwesome" name="play" />}
+          {this.state.playing && <Icon type="FontAwesome" name="pause" />}
         </Button>
-       
-      
-       
 
         <Button
           transparent
-          onPress={this.props.addSound.bind(this, this.props.item.title)}
+          onPress={this.props.addSound.bind(this, this.props.item)}
         >
           <Icon type="Ionicons" name="md-add" />
         </Button>
