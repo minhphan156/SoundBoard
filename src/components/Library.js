@@ -25,12 +25,7 @@ class Library extends Component {
     static navigationOptions ={
         title: "Library",
       };
-      constructor(props){
-        super(props);
-        this.state={
-          soundList:{}
-        }
-      }
+   
   
   render() {
     return (
@@ -55,22 +50,6 @@ class Library extends Component {
     );
   }
 }
-
-const SoundList = (props) => {
-  console.log('------------------------------------');
-  console.log("SoundList component");
-  console.log(props.soundList)
-  console.log('------------------------------------');
-  const soundList = props.soundList;
-  const listItems = soundList.map((sound) => 
-  {
-          <ListItem><Text>{sound.title}</Text></ListItem>
-  });
-  
-  return(
-    <List>{listItems}</List>
-  );
-};
 
 const mapStateToProps = ({ soundData }) => {
   const  sounds  = soundData;
