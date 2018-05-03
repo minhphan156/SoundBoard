@@ -16,74 +16,65 @@ import {
   List,
   Text
 } from "native-base";
+import { SectionList,FlatList, View } from "react-native";
+
 import { connect } from "react-redux";
 import Video from "react-native-video";
 import update from 'immutability-helper';
-
-//import soundList from '../assets/soundList';
 class Library extends Component {
     static navigationOptions ={
         title: "Library",
       };
-      
       constructor(props){
         super(props);
         this.state={
-          soundList: []
+          soundList:{}
         }
       }
-      componentWillMount(){
-console.log('------------------------------------');
-console.log("componentDidMount library");
-console.log('------------------------------------');    
-this.addSoundToList();
-  }
-  componentWillUpdate(){
-    console.log('------------------------------------');
-    console.log("componentDidMount library");
-    console.log('------------------------------------');    
-    this.addSoundToList();
-      }
-  addSoundToList(){
-    const newstate = update(this.state.soundList, {$push: [this.props.sounds]});
-    console.log('------------------------------------');
-    console.log('------------------------------------');
-    console.log("newstate Library");
-    console.log('------------------------------------');
-    console.log(newstate);
-    console.log('------------------------------------');
-    // this.setState(prevState => ({
-    //   soundList: 
-    // }))
-   this.setState({soundList: newstate})
-  }
+  
   render() {
-    console.log('------------------------------------');
-    console.log('------------------------------------');
-    console.log("Library");
-    console.log('------------------------------------');
-    console.log(this.state.soundList);
-    console.log('------------------------------------');
     return (
       
       <Container>
-      
+
+     { this.props.sounds.url &&
       <Video
       source={this.props.sounds.url}
       resizeMode="cover"
     />
+     }
         <Content>
-        <Text>Library</Text>
-        <Text>{this.props.sounds.title}</Text>
-       
+        <FlatList
+        data={this.props.sounds}
+        renderItem={({item}) => <Text>{item.title}</Text>}
+        keyExtractor={(item, index) => item.title}
+      />
+      
         </Content>
       </Container>
     );
   }
 }
+
+const SoundList = (props) => {
+  console.log('------------------------------------');
+  console.log("SoundList component");
+  console.log(props.soundList)
+  console.log('------------------------------------');
+  const soundList = props.soundList;
+  const listItems = soundList.map((sound) => 
+  {
+          <ListItem><Text>{sound.title}</Text></ListItem>
+  });
+  
+  return(
+    <List>{listItems}</List>
+  );
+};
+
 const mapStateToProps = ({ soundData }) => {
-  const { sounds } = soundData;
-  return { sounds };
+  const  sounds  = soundData;
+  return  {sounds} ;
 };
 
 export default connect(mapStateToProps, null)(Library);

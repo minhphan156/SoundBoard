@@ -1,13 +1,13 @@
 import {ADD_SOUND} from '../actions/type';
 
 const INITIAL_STATE  = {
-    sounds:{}
+    sounds:[]
 }
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = [], action) => {
     switch (action.type){
         case ADD_SOUND:
-        return{...state, sounds: action.payload};
+        return[...state, action.payload];
         default:
       return state;
     }
