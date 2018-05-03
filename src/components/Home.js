@@ -22,7 +22,6 @@ import { Image, SectionList, View } from "react-native";
 import { SoundSectionList } from "../assets/SoundAssest";
 import { connect } from "react-redux";
 import { addSound } from "../actions";
-import Player from "./Player";
 import Video from "react-native-video";
 
 class Home extends Component {

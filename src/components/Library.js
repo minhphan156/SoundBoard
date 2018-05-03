@@ -16,35 +16,70 @@ import {
   List,
   Text
 } from "native-base";
-import { SectionList,FlatList, View } from "react-native";
+import { SectionList, FlatList, View } from "react-native";
 
 import { connect } from "react-redux";
 import Video from "react-native-video";
-import update from 'immutability-helper';
-class Library extends Component {
-    static navigationOptions ={
-        title: "Library",
-      };
-   
-  
-  render() {
-    return (
-      
-      <Container>
 
-     { this.props.sounds.url &&
-      <Video
-      source={this.props.sounds.url}
-      resizeMode="cover"
-    />
-     }
+class Library extends Component {
+  static navigationOptions = {
+    title: "Library"
+  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      playing: false,
+      muted: false,
+      shuffle: false,
+      sliding: false,
+      currentTime: 0,
+      songUrl: null
+    };
+  }
+  playSound(urlPassed) {
+    
+    this.setState({
+      songUrl: urlPassed,
+      playing: !this.state.playing
+    });
+    console.log('------------------------------------');
+    console.log("playSound");
+    console.log(urlPassed)
+    console.log(this.state.songUrl)
+    console.log('------------------------------------');
+  }
+
+  render() {
+  
+    return (
+      <Container>
         <Content>
-        <FlatList
-        data={this.props.sounds}
-        renderItem={({item}) => <Text>{item.title}</Text>}
-        keyExtractor={(item, index) => item.title}
-      />
-      
+        <Text>Library</Text>
+          <FlatList
+            data={this.props.sounds}
+            renderItem={({ item,index}) => 
+
+            <ListItem>
+            {this.state.songUrl && (
+              <Video
+                source={this.state.songUrl}
+                paused={!this.state.playing}
+                resizeMode="cover"
+              />
+            )}
+            <Text key={index}>{item.title}</Text>
+            <Button
+              transparent
+              onPress={this.playSound.bind(this, item.url)}
+            >
+              {!this.state.playing && <Icon type="FontAwesome" name="play" />}
+              {this.state.playing && <Icon type="FontAwesome" name="pause" />}
+            </Button>
+          </ListItem>
+            
+            }
+            keyExtractor={(item, index) => item.title}
+          />
         </Content>
       </Container>
     );
@@ -52,8 +87,8 @@ class Library extends Component {
 }
 
 const mapStateToProps = ({ soundData }) => {
-  const  sounds  = soundData;
-  return  {sounds} ;
+  const sounds = soundData;
+  return { sounds };
 };
 
 export default connect(mapStateToProps, null)(Library);
