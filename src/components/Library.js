@@ -25,58 +25,19 @@ class Library extends Component {
   static navigationOptions = {
     title: "Library"
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      playing: false,
-      muted: false,
-      shuffle: false,
-      sliding: false,
-      currentTime: 0,
-      songUrl: null
-    };
-  }
-  playSound(urlPassed) {
-    
-    this.setState({
-      songUrl: urlPassed,
-      playing: !this.state.playing
-    });
-    console.log('------------------------------------');
-    console.log("playSound");
-    console.log(urlPassed)
-    console.log(this.state.songUrl)
-    console.log('------------------------------------');
-  }
 
   render() {
-  
+ 
     return (
       <Container>
         <Content>
-        <Text>Library</Text>
           <FlatList
             data={this.props.sounds}
-            renderItem={({ item,index}) => 
-
-            <ListItem>
-            {this.state.songUrl && (
-              <Video
-                source={this.state.songUrl}
-                paused={!this.state.playing}
-                resizeMode="cover"
-              />
-            )}
-            <Text key={index}>{item.title}</Text>
-            <Button
-              transparent
-              onPress={this.playSound.bind(this, item.url)}
-            >
-              {!this.state.playing && <Icon type="FontAwesome" name="play" />}
-              {this.state.playing && <Icon type="FontAwesome" name="pause" />}
-            </Button>
-          </ListItem>
-            
+            renderItem={({ item,index}) => {
+              return ( <SectionListItem item={item} index={index} />);
+       
+            }
+          
             }
             keyExtractor={(item, index) => item.title}
           />
@@ -86,6 +47,46 @@ class Library extends Component {
   }
 }
 
+class SectionListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      playing: false,
+      songUrl: null
+    };
+  }
+
+  playSoundLib(urlPassed) {
+    this.setState({
+      songUrl: urlPassed,
+      playing: !this.state.playing
+    });
+  }
+
+  render(){
+    return(
+      <ListItem>
+      {this.state.songUrl && (
+        <Video
+          source={this.state.songUrl}
+          paused={!this.state.playing}
+          resizeMode="cover"
+        />
+      )}
+      <Text key={this.props.index}>{this.props.item.title}</Text>
+      <Button
+        transparent
+        onPress={this.playSoundLib.bind(this, this.props.item.url)}
+      >
+        {!this.state.playing && <Icon type="FontAwesome" name="play" />}
+        {this.state.playing && <Icon type="FontAwesome" name="pause" />}
+      </Button>
+    </ListItem>
+    );
+  }
+
+
+}
 const mapStateToProps = ({ soundData }) => {
   const sounds = soundData;
   return { sounds };

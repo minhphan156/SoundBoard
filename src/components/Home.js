@@ -34,12 +34,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log('------------------------------------');
-    console.log('------------------------------------');
-    console.log("Home");
-    console.log('------------------------------------');
-    console.log(this.props.sounds);
-    console.log('------------------------------------');
     var { navigate } = this.props.navigation;
     return (
       <Container>
@@ -92,10 +86,6 @@ class SectionListItem extends Component {
     super(props);
     this.state = {
       playing: false,
-      muted: false,
-      shuffle: false,
-      sliding: false,
-      currentTime: 0,
       songUrl: null
     };
   }
