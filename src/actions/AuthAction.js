@@ -55,14 +55,5 @@ const loginUserSuccess = (dispatch, user) => {
 // employeeList() is from key="employeeList" in Router
 // main() is from key="main" in Router
    // Actions.main();
-   console.log('------------------------------------');
-   console.log("log in success in action");
-   console.log('------------------------------------');
-   var { navigate } = this.props.navigation;
-    onPress();
+ 
 };
-const onPress=() => {
-    console.log('------------------------------------');
-    console.log("onpress login ");
-    console.log('------------------------------------');
-    navigate("Home")};
