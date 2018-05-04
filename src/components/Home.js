@@ -56,7 +56,7 @@ class Home extends Component {
             keyExtractor={(item, index) => item.title}
           />
         </Content>
-        
+
         <Footer>
           <FooterTab>
             <Button transparent>
@@ -70,10 +70,6 @@ class Home extends Component {
             <Button transparent onPress={() => navigate("Search")}>
               <Icon type="FontAwesome" name="search" />
               <Text>Search</Text>
-            </Button>
-            <Button transparent onPress={() => navigate("Playing")}>
-              <Icon type="FontAwesome" name="play" />
-              <Text>Playing</Text>
             </Button>
           </FooterTab>
         </Footer>
@@ -108,24 +104,41 @@ class SectionListItem extends Component {
           />
         )}
         <Text key={this.props.index}>{this.props.item.title}</Text>
-        <Button
-          transparent
-          onPress={this.playSound.bind(this, this.props.item.url)}
-        >
-          {!this.state.playing && <Icon type="FontAwesome" name="play" />}
-          {this.state.playing && <Icon type="FontAwesome" name="pause" />}
-        </Button>
 
-        <Button
-          transparent
-          onPress={this.props.addSound.bind(this, this.props.item)}
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "row",
+            justifyContent: "flex-end"
+          }}
         >
-          <Icon type="Ionicons" name="md-add" />
-        </Button>
+          <View style={{ marginLeft: 10, marginRight: 10 }}>
+            <Button
+              iconLeft
+              transparent
+              onPress={this.playSound.bind(this, this.props.item.url)}
+            >
+              {!this.state.playing && <Icon type="FontAwesome" name="play" />}
+              {this.state.playing && <Icon type="FontAwesome" name="pause" />}
+            </Button>
+          </View>
 
-        <Button transparent>
-          <Icon type="Entypo" name="add-to-list" />
-        </Button>
+          <View style={{ marginLeft: 10, marginRight: 10 }}>
+            <Button
+              iconLeft
+              transparent
+              onPress={this.props.addSound.bind(this, this.props.item)}
+            >
+              <Icon type="Ionicons" name="md-add" />
+            </Button>
+          </View>
+
+          <View style={{ marginLeft: 10, marginRight: 10 }}>
+            <Button iconLeft transparent>
+              <Icon type="Entypo" name="add-to-list" />
+            </Button>
+          </View>
+        </View>
       </ListItem>
     );
   }

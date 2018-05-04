@@ -11,16 +11,8 @@ const removeSound = (list, index) => {
 export default (state = [], action) => {
     switch (action.type){
         case ADD_SOUND:
-        console.log('------------------------------------');
-        console.log("add sound reducer")
-        console.log(state);
-        console.log('------------------------------------');
         return[...state, action.payload];
         case REMOVE_SOUND:
-        console.log('------------------------------------');
-        console.log("remove sound reducer")
-        console.log(state);
-        console.log('------------------------------------');
         return removeSound(state,action.payload);
 
         default:
