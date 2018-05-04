@@ -20,21 +20,27 @@ import { SectionList, FlatList, View } from "react-native";
 
 import { connect } from "react-redux";
 import Video from "react-native-video";
+import { removeSound } from "../actions";
 
 class Library extends Component {
   static navigationOptions = {
     title: "Library"
-  };
-
+  }; 
+  removeSound() {
+    this.props.removeSound();
+  }
   render() {
- 
+    console.log('------------------------------------');
+    console.log("library render");
+    console.log(this.props.sounds)
+    console.log('------------------------------------');
     return (
       <Container>
         <Content>
           <FlatList
             data={this.props.sounds}
             renderItem={({ item,index}) => {
-              return ( <SectionListItem item={item} index={index} />);
+              return ( <SectionListItem item={item} index={index} removeSound={this.props.removeSound}/>);
        
             }
           
@@ -66,6 +72,7 @@ class SectionListItem extends Component {
   render(){
     return(
       <ListItem>
+
       {this.state.songUrl && (
         <Video
           source={this.state.songUrl}
@@ -73,23 +80,34 @@ class SectionListItem extends Component {
           resizeMode="cover"
         />
       )}
-      <Text key={this.props.index}>{this.props.item.title}</Text>
-      <Button
-        transparent
-        onPress={this.playSoundLib.bind(this, this.props.item.url)}
-      >
-        {!this.state.playing && <Icon type="FontAwesome" name="play" />}
-        {this.state.playing && <Icon type="FontAwesome" name="pause" />}
-      </Button>
-    </ListItem>
+
+          <Text key={this.props.index}>{this.props.item.title}</Text>
+          <Button
+            transparent
+            onPress={this.playSoundLib.bind(this, this.props.item.url)}
+          >
+            {!this.state.playing && <Icon type="FontAwesome" name="play" />}
+            {this.state.playing && <Icon type="FontAwesome" name="pause" />}
+          </Button>
+    
+          <Button 
+          transparent
+          onPress={this.props.removeSound.bind(this, this.props.index)}
+          >
+          <Icon type="FontAwesome" name="remove"/>
+          </Button>
+        </ListItem>
+
+      
+      
     );
   }
-
-
 }
 const mapStateToProps = ({ soundData }) => {
   const sounds = soundData;
   return { sounds };
 };
-
-export default connect(mapStateToProps, null)(Library);
+const mapActionCreators = {
+  removeSound
+}; 
+export default connect(mapStateToProps, mapActionCreators)(Library);

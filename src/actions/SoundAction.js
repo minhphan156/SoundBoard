@@ -1,4 +1,4 @@
-import {ADD_SOUND, PLAY_SOUND} from './type';
+import {ADD_SOUND, REMOVE_SOUND} from './type';
 
 export const addSound = (item) => {
     return {
@@ -7,3 +7,9 @@ export const addSound = (item) => {
     };
 };
 
+export const removeSound = (index) => {
+    return {
+        type: REMOVE_SOUND,
+        payload: index
+    };
+};
