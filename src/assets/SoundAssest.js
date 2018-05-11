@@ -3,12 +3,12 @@ export const SoundSectionList = [
     header: "A",
     data: [
       {
-        title: "All I Ask",
-        url: require("./AllIAsk.mp3")
-      },
-      {
         title: "A Whole New World",
         url: require("./AWholeNewWorld.mp3")
+      },
+      {
+        title: "Airplane",
+        url: require("./Airplane.mp3")
       }
     ]
   },
@@ -16,12 +16,25 @@ export const SoundSectionList = [
     header: "B",
     data: [
       {
-        title: "Bubbles",
-        url: require("./Bubbles.mp3")
-      },
-      {
         title: "Background Music",
         url: require("./BackgroundMusic.mp3")
+      },
+      {
+        title: "Bird Chirping",
+        url: require("./BirdChirping.mp3")
+      },
+      {
+        title: "Bubbles",
+        url: require("./Bubbles.mp3")
+      }
+    ]
+  },
+  {
+    header: "C",
+    data: [
+      {
+        title: "Car",
+        url: require("./Car.mp3")
       }
     ]
   },
@@ -29,8 +42,8 @@ export const SoundSectionList = [
     header: "D",
     data: [
       {
-        title: "Deamn",
-        url: require("./DEAMN.mp3")
+        title: "Dog Barking",
+        url: require("./DogBark.mp3")
       }
     ]
   },
@@ -40,6 +53,41 @@ export const SoundSectionList = [
       {
         title: "Faraway Land",
         url: require("./FarawayLandMusic.mp3")
+      },
+      {
+        title: "Flamingoes",
+        url: require("./Flamingoes.mp3")
+      }
+    ]
+  },
+  {
+    header: "H",
+    data: [
+      {
+        title: "Horse Neighing",
+        url: require("./HorseNeighing.mp3")
+      }
+    ]
+  },
+  {
+    header: "L",
+    data: [
+      {
+        title: "Lion",
+        url: require("./Lion.mp3")
+      },
+      {
+        title: "Lions Roaring",
+        url: require("./LionsRoaring.mp3")
+      }
+    ]
+  },
+  {
+    header: "M",
+    data: [
+      {
+        title: "Meow",
+        url: require("./Meow.mp3")
       }
     ]
   },
@@ -69,5 +117,5 @@ export const SoundSectionList = [
         url: require("./WithYou.mp3")
       }
     ]
-  },
+  }
 ];
