@@ -6,6 +6,8 @@ import Library from './components/Library';
 import Search from './components/Search';
 import LoginForm from './components/LoginForm';
 
+console.disableYellowBox = true;
+
 const Router = StackNavigator({
     LoginForm: {screen : LoginForm},
     Home: {screen : Home},
