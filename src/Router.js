@@ -7,7 +7,7 @@ import Search from './components/Search';
 import LoginForm from './components/LoginForm';
 
 const Router = StackNavigator({
-  //  LoginForm: {screen : LoginForm},
+    LoginForm: {screen : LoginForm},
     Home: {screen : Home},
     Library: {screen: Library},
     Search: {screen: Search}

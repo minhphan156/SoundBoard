@@ -18,7 +18,7 @@ export const SoundSectionList = [
       {
         title: "Bubbles",
         url: require("./Bubbles.mp3")
-      }
+      },
       {
         title: "Background Music",
         url: require("./BackgroundMusic.mp3")
