@@ -65,12 +65,9 @@ class Home extends Component {
             </Button>
             <Button transparent onPress={() => navigate("Library")}>
               <Icon type="MaterialIcons" name="library-music" />
-              <Text>library</Text>
+              <Text>Library</Text>
             </Button>
-            <Button transparent onPress={() => navigate("Search")}>
-              <Icon type="FontAwesome" name="search" />
-              <Text>Search</Text>
-            </Button>
+
           </FooterTab>
         </Footer>
       </Container>

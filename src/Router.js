@@ -12,7 +12,7 @@ const Router = StackNavigator({
     LoginForm: {screen : LoginForm},
     Home: {screen : Home},
     Library: {screen: Library},
-    Search: {screen: Search}
+    //Search: {screen: Search}
 });
 
 export default Router;

@@ -30,6 +30,7 @@ class Library extends Component {
     this.props.removeSound();
   }
   render() {
+    var { navigate } = this.props.navigation;
     console.log("------------------------------------");
     console.log("library render");
     console.log(this.props.sounds);
@@ -51,6 +52,19 @@ class Library extends Component {
             keyExtractor={(item, index) => item.title}
           />
         </Content>
+         <Footer>
+          <FooterTab>
+            <Button transparent onPress={() => navigate("Home")} >
+              <Icon type="FontAwesome" name="home" />
+              <Text>Home</Text>
+            </Button>
+            <Button transparent>
+              <Icon type="MaterialIcons" name="library-music" />
+              <Text>Library</Text>
+            </Button>
+
+          </FooterTab>
+        </Footer>
       </Container>
     );
   }
