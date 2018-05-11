@@ -11,7 +11,8 @@ email: '',
 password: '', 
 user: null, 
 error:'',
-loading: false
+loading: 'display',
+loggedIn: false
 };
 // 1-need to wire with index.js
 export default (state = INITIAL_STATE, action) => {
@@ -34,14 +35,14 @@ export default (state = INITIAL_STATE, action) => {
             console.log('------------------------------------');
             console.log("login sucess");
             console.log('------------------------------------');
-            return{...state, ...INITIAL_STATE, user: action.payload};
+            return{...state, ...INITIAL_STATE, loading: 'inside', user: action.payload};
         case LOGIN_USER_FAIL:
         console.log('------------------------------------');
             console.log("login fail");
             console.log('------------------------------------');
-            return {...state, error: 'Authentication Failed.', loading: false};
+            return {...state, error: 'Authentication Failed.'};
         case LOGIN_USER:
-            return {...state, loading: true, error: ''};
+            return {...state, error: ''};
         default:
             return state;
     }

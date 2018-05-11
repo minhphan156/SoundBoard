@@ -38,12 +38,21 @@ class LoginForm extends Component{
     }
 
     renderButton(){
-        if(this.props.loading){
+        var { navigate } = this.props.navigation;
+        if(this.props.loading == "outside"){
             return(
                 <Spinner size="large" />
             );
         }
-        else{
+        else if(this.props.loading == "inside"){
+            navigate("Home");
+            return(
+            <Button onPress={() => navigate("Home")}>
+                  Return Home
+            </Button>
+            );
+        }
+        else if(this.props.loading == "display"){
             return(
             <Button onPress={this.onButtonPress.bind(this)}>
                   Login
