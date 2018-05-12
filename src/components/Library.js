@@ -22,10 +22,13 @@ import { connect } from "react-redux";
 import Video from "react-native-video";
 import { removeSound } from "../actions";
 
+// C4
 class Library extends Component {
   static navigationOptions = {
     title: "Library"
   };
+
+  // M4.1
   removeSound() {
     this.props.removeSound();
   }
@@ -70,6 +73,7 @@ class Library extends Component {
   }
 }
 
+// C5
 class SectionListItem extends Component {
   constructor(props) {
     super(props);
@@ -78,7 +82,7 @@ class SectionListItem extends Component {
       songUrl: null
     };
   }
-
+  // M5.1
   playSoundLib(urlPassed) {
     this.setState({
       songUrl: urlPassed,
@@ -96,7 +100,6 @@ class SectionListItem extends Component {
             resizeMode="cover"
           />
         )}
-
         <Text key={this.props.index}>{this.props.item.title}</Text>
         <View
           style={{

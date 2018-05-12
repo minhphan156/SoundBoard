@@ -14,7 +14,6 @@ export default (state = [], action) => {
         return[...state, action.payload];
         case REMOVE_SOUND:
         return removeSound(state,action.payload);
-
         default:
       return state;
     }

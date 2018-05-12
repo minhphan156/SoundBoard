@@ -16,19 +16,19 @@ import {
   List,
   Text
 } from "native-base";
-
 import { Image, SectionList, View } from "react-native";
-
 import { SoundSectionList } from "../assets/SoundAssest";
 import { connect } from "react-redux";
 import { addSound } from "../actions";
 import Video from "react-native-video";
 
+// C1
 class Home extends Component {
   static navigationOptions = {
     title: "Home"
   };
 
+  // M1.1
   addSound() {
     this.props.addSound();
   }
@@ -56,7 +56,6 @@ class Home extends Component {
             keyExtractor={(item, index) => item.title}
           />
         </Content>
-
         <Footer>
           <FooterTab>
             <Button transparent>
@@ -67,13 +66,14 @@ class Home extends Component {
               <Icon type="MaterialIcons" name="library-music" />
               <Text>Library</Text>
             </Button>
-
           </FooterTab>
         </Footer>
       </Container>
     );
   }
 }
+
+// C2
 class SectionListItem extends Component {
   constructor(props) {
     super(props);
@@ -82,7 +82,7 @@ class SectionListItem extends Component {
       songUrl: null
     };
   }
-
+  // M2.1
   playSound(urlPassed) {
     this.setState({
       songUrl: urlPassed,
@@ -141,6 +141,7 @@ class SectionListItem extends Component {
   }
 }
 
+// C3
 class SectionHeader extends Component {
   render() {
     return (
