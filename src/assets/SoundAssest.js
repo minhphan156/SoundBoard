@@ -3,10 +3,8 @@ export const SoundSectionList = [
     header: "A",
     data: [
       {
-        title: "A Whole New World"
-      },
-      {
-        title: "Airplane"
+        title: "Airplane",
+        url: require("./Airplane.mp3")
       }
     ]
   },
@@ -18,10 +16,12 @@ export const SoundSectionList = [
         url: require("./BackgroundMusic.wav")
       },
       {
-        title: "Bird Chirping"
+        title: "Birds Chirping",
+         url: require("./BirdsChirpingCopy.mp3")
       },
       {
-        title: "Bubbles"
+        title: "Bubbles",
+        url: require("./Bubbles.mp3")
       }
     ]
   },
@@ -38,16 +38,14 @@ export const SoundSectionList = [
     header: "D",
     data: [
       {
-        title: "Dogs Barking"
+        title: "Dogs Barking",
+        url: require("./DogBark.wav")
       }
     ]
   },
   {
     header: "F",
     data: [
-      {
-        title: "Faraway Land"
-      },
       {
         title: "Flamingoes",
         url: require("./Flamingoes.wav")
@@ -58,7 +56,8 @@ export const SoundSectionList = [
     header: "H",
     data: [
       {
-        title: "Horse Neighing"
+        title: "Horse Neighing",
+        url: require("./HorseNeigh.mp3")
       }
     ]
   },
@@ -72,34 +71,11 @@ export const SoundSectionList = [
     ]
   },
   {
-    header: "M",
-    data: [
-      {
-        title: "Meow"
-      }
-    ]
-  },
-  {
     header: "R",
     data: [
       {
-        title: "Rocket Launch Countdown"
-      }
-    ]
-  },
-  {
-    header: "S",
-    data: [
-      {
-        title: "Success"
-      }
-    ]
-  },
-  {
-    header: "W",
-    data: [
-      {
-        title: "With You"
+        title: "Rocket Launch Countdown",
+        url: require("./RocketLaunch.mp3")
       }
     ]
   }

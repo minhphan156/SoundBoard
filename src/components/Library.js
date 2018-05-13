@@ -65,7 +65,7 @@ class Library extends Component {
               <Icon type="MaterialIcons" name="library-music" />
               <Text>Library</Text>
             </Button>
-            <Button transparent onPress={() => navigate("fakeLogout")}>
+            <Button transparent onPress={() => navigate("Login2")}>
               <Icon type="Ionicons" name="log-out" />
               <Text>Logout</Text>
             </Button>
