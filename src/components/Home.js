@@ -66,6 +66,10 @@ class Home extends Component {
               <Icon type="MaterialIcons" name="library-music" />
               <Text>Library</Text>
             </Button>
+            <Button transparent onPress={() => navigate("fakeLogout")}>
+              <Icon type="Ionicons" name="log-out" />
+              <Text>Logout</Text>
+            </Button>
           </FooterTab>
         </Footer>
       </Container>

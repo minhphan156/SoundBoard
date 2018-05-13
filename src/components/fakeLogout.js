@@ -39,41 +39,14 @@ class LoginForm extends Component{
         }
     }
 
-    // M6.5
     renderButton(){
         var { navigate } = this.props.navigation;
-        if(this.props.loading == "outside"){
-            return(
-                <Spinner size="large" />
-            );
-        }
-        else if(this.props.loading == "inside"){
-            navigate("Home");
-            return(
-            <Button onPress={() => navigate("Home")}>
-                  Return Home
-            </Button>
-            );
-        }
-        else if(this.props.loading == "display"){
-            return(
-            <Button onPress={this.onButtonPress.bind(this)}>
-                  Login
-            </Button>
-            );
-        }
-    }
-
-    // M6.6
-    createAccountButton(){
-        var { navigate } = this.props.navigation;
-        if(this.props.loading == "display"){
-            return(
-            <Button onPress={() => navigate("CreateAccount")}>
-                  Create an Account
-            </Button>
-            );
-        }
+        this.props.loading = "display"
+        return(
+        <Button onPress={this.onButtonPress.bind(this)}>
+              Login
+        </Button>
+        );
     }
 
     render(){
@@ -105,9 +78,6 @@ class LoginForm extends Component{
                     {this.renderButton()}
                 </CardSection>
 
-                <CardSection>
-                    {this.createAccountButton()}
-                </CardSection>
             </Card>
         );
     }
