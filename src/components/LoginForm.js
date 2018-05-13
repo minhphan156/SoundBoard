@@ -63,6 +63,33 @@ class LoginForm extends Component{
             );
         }
     }
+
+    // M6.6
+    createAccountButton(){
+        var { navigate } = this.props.navigation;
+        // if(this.props.loading == "outside"){
+        //     return(
+        //         <Spinner size="large" />
+        //     );
+        // }
+        // else if(this.props.loading == "inside"){
+        //     navigate("CreateAccount");
+        //     return(
+        //     <Button onPress={() => navigate("CreateAccount")}>
+        //           Return Home
+        //     </Button>
+        //     );
+        // }
+        // else
+        if(this.props.loading == "display"){
+            return(
+            <Button onPress={() => navigate("CreateAccount")}>
+                  Create an Account
+            </Button>
+            );
+        }
+    }
+
     render(){
         return(
             <Card>
@@ -74,7 +101,6 @@ class LoginForm extends Component{
                     value={this.props.email}
                      />
                 </CardSection>
-
 
                 <CardSection>
                     <Input
@@ -91,6 +117,10 @@ class LoginForm extends Component{
 
                 <CardSection>
                     {this.renderButton()}
+                </CardSection>
+
+                <CardSection>
+                    {this.createAccountButton()}
                 </CardSection>
             </Card>
         );
